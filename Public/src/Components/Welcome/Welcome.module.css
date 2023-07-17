@@ -1,13 +1,28 @@
 .welcome{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
-    flex-direction: column;
 }
+
 .welcome > img {
     height: 20rem;
 }
+
 .welcome >span {
     color: #4e0eff;
+}
+
+.logout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 38px;
+    height: 40px;
+    margin-right: 92px;
+    margin-top: 11px;
+    margin-left: auto;
+    color: white;
 }

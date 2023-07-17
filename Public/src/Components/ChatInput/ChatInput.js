@@ -30,7 +30,7 @@ function ChatInput(props) {
             <div className="chatinput-button-container">
                 <div className="chatinput-emoji">
                     <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
-                    {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
+                    {showEmojiPicker && <Picker className="emoji-picker-react" onEmojiClick={handleEmojiClick} />}
                 </div>
             </div>
             <form className="chatinput-input-container" onSubmit={(event) => sendChat(event)}>

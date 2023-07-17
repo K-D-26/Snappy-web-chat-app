@@ -109,7 +109,7 @@ function Login() {
             onChange={(e) => handleChange(e)}
           />
 
-          <button className={styles.formButton} type="submit">Login In</button>
+          <button className={styles.formButton} type="submit">Login</button>
           <span className={styles.formSpan}>
             Don't have an account ? <Link to="/register">Register.</Link>
           </span>
