@@ -24,7 +24,8 @@
     cursor: pointer;
 }
 
-/* .emoji-picker-react {
+/*
+.emoji-picker-react {
     position: absolute;
     top: -350px;
     background-color: #080420;
@@ -54,7 +55,8 @@
 
 .emoji-group:before {
     background-color: #080420;
-} */
+} 
+*/
 
 .emoji-picker-react {
     position: absolute;

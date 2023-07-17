@@ -6,7 +6,7 @@ import ChatContainer from '../ChatContainer/ChatContainer';
 import styles from './Chat.module.css';
 import axios from 'axios';
 import { allUsersRoute, host } from '../../Utils/APIRoutes';
-import  {io} from "socket.io-client";
+import { io } from "socket.io-client";
 
 function Chat() {
 
@@ -18,7 +18,7 @@ function Chat() {
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
 
-  const myFunction1 = async () =>{
+  const myFunction1 = async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/login");
     } else {
@@ -35,7 +35,7 @@ function Chat() {
   }, []);
 
 
-  const myFunction3 = async () =>{
+  const myFunction3 = async () => {
     if (currentUser) {
       socket.current = io(host);
       socket.current.emit("add-user", currentUser._id);
@@ -47,7 +47,7 @@ function Chat() {
 
 
 
-  const myFunction2 = async () =>{
+  const myFunction2 = async () => {
     if (currentUser) {
       if (currentUser.isAvatarImageSet) {
         const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
@@ -69,11 +69,11 @@ function Chat() {
     <>
       <div className={styles.chat}>
         <div className={styles.container}>
-          <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
+          <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange} />
           {currentChat === undefined ? (
             <Welcome />
           ) : (
-            <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>
+            <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket} />
           )}
         </div>
       </div>
@@ -81,6 +81,4 @@ function Chat() {
   )
 }
 
-export default Chat
-
-
+export default Chat;

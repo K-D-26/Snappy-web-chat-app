@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './ChatInput.css';
 import { BsEmojiSmileFill } from "react-icons/bs";
 import { IoMdSend } from "react-icons/io";
@@ -8,23 +8,23 @@ function ChatInput(props) {
     const [msg, setMsg] = useState("");
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const handleEmojiPickerhideShow = () => {
-      setShowEmojiPicker(!showEmojiPicker);
+        setShowEmojiPicker(!showEmojiPicker);
     };
 
     const handleEmojiClick = (event, emojiObject) => {
         let message = msg;
         message += emojiObject.emoji;
         setMsg(message);
-      };
-    
+    };
+
     const sendChat = (event) => {
         event.preventDefault();
         if (msg.length > 0) {
-        props.handleSendMsg(msg);
-        setMsg("");
+            props.handleSendMsg(msg);
+            setMsg("");
         }
     };
-  
+
     return (
         <div className='chatinput'>
             <div className="chatinput-button-container">
@@ -48,4 +48,4 @@ function ChatInput(props) {
     )
 }
 
-export default ChatInput
+export default ChatInput;

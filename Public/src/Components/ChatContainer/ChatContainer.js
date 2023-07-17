@@ -13,13 +13,13 @@ function ChatContainer(props) {
     const scrollRef = useRef();
 
     const myFunction1 = async () => {
-        if(props.currentChat){
+        if (props.currentChat) {
             const response = await axios.post(getAllMessagesRoute, {
                 from: props.currentUser._id,
                 to: props.currentChat._id,
             });
             setMessages(response.data);
-        } 
+        }
     }
     useEffect(() => {
         myFunction1();
@@ -109,4 +109,4 @@ function ChatContainer(props) {
     )
 }
 
-export default ChatContainer
+export default ChatContainer;

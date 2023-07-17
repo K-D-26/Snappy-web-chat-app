@@ -10,12 +10,10 @@ export default function App() {
     <>
       <Router>
         <Routes>
-          
-          <Route exact path="/register" element={<Register/>}/>
-          <Route exact path="/login" element={<Login/>}/>
-          <Route exact path="/setavater" element={<SetAvatar/>}/>
-          <Route exact path="/" element={<Chat/>}/>
-           
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/setavatar" element={<SetAvatar />} />
+          <Route exact path="/" element={<Chat />} />
         </Routes>
       </Router>
     </>
