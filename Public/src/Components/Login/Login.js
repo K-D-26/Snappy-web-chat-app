@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import styles from './Login.module.css';
 import Logo from "../../assets/logo.svg";
@@ -18,7 +18,7 @@ function Login() {
     draggable: true,
     theme: "dark",
   };
-  
+
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -39,7 +39,7 @@ function Login() {
   }
 
   const handleValidation = () => {
-    const { password, username} = values;
+    const { password, username } = values;
     if (password === "") {
       toast.error(
         "Email and Password are required.",
@@ -57,64 +57,62 @@ function Login() {
     return true;
   };
 
-  const handleSubmit = async (event) =>{
-        event.preventDefault();
-        if(handleValidation()){
-          const { password, username } = values;
-          const {data} = await axios.post(loginRoute, {
-            username,
-            password,
-          });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (handleValidation()) {
+      const { password, username } = values;
+      const { data } = await axios.post(loginRoute, {
+        username,
+        password,
+      });
 
-          if (data.status === false) {
-            toast.error(data.msg, toastOptions);
-          }
-          if (data.status === true) {
-            localStorage.setItem(
-              process.env.REACT_APP_LOCALHOST_KEY,
-              JSON.stringify(data.user)
-            );
-            navigate("/");
-          }
+      if (data.status === false) {
+        toast.error(data.msg, toastOptions);
+      }
+      if (data.status === true) {
+        localStorage.setItem(
+          process.env.REACT_APP_LOCALHOST_KEY,
+          JSON.stringify(data.user)
+        );
+        navigate("/");
+      }
 
-        }
-
-        
     }
 
-  
+
+  }
 
   return (
     <>
       <div className={styles.register}>
-        <form className={styles.registerForm} onSubmit={(event)=> handleSubmit(event)}>
+        <form className={styles.registerForm} onSubmit={(event) => handleSubmit(event)}>
           <div className={styles.brand}>
-              <img src={Logo} alt="Logo" />
-              <h1>
-                  Snappy
-              </h1>
+            <img src={Logo} alt="Logo" />
+            <h1>
+              Snappy
+            </h1>
           </div>
           <input
-              className={styles.formInput}
-              type="text"
-              placeholder="Username"
-              name="username"
-              onChange={(e) => handleChange(e)}
-              min="3"
-            />
-            
-            <input
-              className={styles.formInput}
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={(e) => handleChange(e)}
-            />
-            
-            <button className={styles.formButton} type="submit">Login In</button>
-            <span className={styles.formSpan}>
-              Don't have an account ? <Link to="/register">Register.</Link>
-            </span>
+            className={styles.formInput}
+            type="text"
+            placeholder="Username"
+            name="username"
+            onChange={(e) => handleChange(e)}
+            min="3"
+          />
+
+          <input
+            className={styles.formInput}
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={(e) => handleChange(e)}
+          />
+
+          <button className={styles.formButton} type="submit">Login In</button>
+          <span className={styles.formSpan}>
+            Don't have an account ? <Link to="/register">Register.</Link>
+          </span>
         </form>
       </div>
       <ToastContainer />
@@ -123,6 +121,3 @@ function Login() {
 }
 
 export default Login
-
-
-
